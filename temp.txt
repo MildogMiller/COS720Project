@@ -1,0 +1,73 @@
+describe.only("Request tests", function () {
+  this.timeout(10 * 1000);
+
+  async function checkMempool() {
+    const txCount = await ethers.provider.getTransactionCount("pending");
+    if (txCount > 0) {
+      throw new Error("There are pending transactions in the mempool");
+    }
+  }
+
+  beforeEach(async function () {
+    // const txCount = await ethers.provider.getTransactionCount("pending");
+    // if (txCount > 0) {
+    //   throw new Error("There are pending transactions in the mempool");
+    // }
+  });
+
+  async function deployMSERC20Fixture() {
+    console.log("Deploy called");
+    const [owner, addr1, addr2] = await ethers.getSigners();
+    const MSERC20 = await ethers.getContractFactory("MSERC20");
+    const MSERC20Contract = await MSERC20.deploy("MSERC20TEST", "MSERC20TESTSYMBOL", "12", "1000");
+    return { MSERC20Contract, owner, addr1, addr2 };
+  }
+
+  it("Should emit a new request event", async function () {
+    return new Promise(async (resolve, reject) => {
+      console.log("other");
+      const { MSERC20Contract, owner, addr1 } = await loadFixture(deployMSERC20Fixture);
+      const time = getTimestamp(8000);
+      expect(await MSERC20Contract.connect(addr1).addNewRequest(owner.address, 10, time).then(other=>{
+        console.log("resovled");
+        resolve();
+      })).to.emit(MSERC20Contract, "newRequest").withArgs(addr1.address, owner.address, 10, time);
+      console.log("other2");
+    });
+  });
+
+  it("Should update the request count", async function () {
+    // return new Promise(async (resolve, reject) => {
+    console.log("test");
+    const { MSERC20Contract, owner, addr1 } = await loadFixture(deployMSERC20Fixture);
+    const time = getTimestamp(8000);
+    expect(await MSERC20Contract.connect(addr1).addNewRequest(owner.address, 10, time))
+    console.log(await ethers.provider.getTransactionCount(MSERC20Contract.address));
+    expect(await MSERC20Contract.connect(addr1).getRequestCount()).to.equal(1);
+    console.log("test2");
+      // resolve();
+    // });
+  });
+});
+
+
+  // function _mint(
+    //     address receipient,
+    //     uint256 amount
+    // ) internal virtual returns (bool success) {
+    //     require(receipient != address(0), "MSERC: Account should exist");
+    //     require(
+    //         _totalSupply + amount > _totalSupply,
+    //         "MSERC: Amount overflows"
+    //     );
+    //     require(
+    //         _balances[receipient] + amount > _balances[receipient],
+    //         "MSERC20: Account overflows"
+    //     );
+    //     require(amount > 0, "MSERC20: Amount must be positive");
+    //     unchecked {
+    //         _balances[receipient] += amount;
+    //         emit Transfer(address(0), receipient, amount);
+    //     }
+    //     return true;
+    // }
