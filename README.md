@@ -8,7 +8,6 @@ This is the github project associated with my assignment
 ## Commands
 
 To setup packages : ```yarn``` <br>
-
 To compile and run This will run the script. you can add more code to use the script in the file replacing *code here* on line 19 :
 ```yarn hardhat run scripts/deploy.js```<br>
 To run all unit tests: ```yarn hardhat test``` <br>
