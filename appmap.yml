@@ -1,7 +1,0 @@
-name: Chain1
-packages:
-  - path: coverage
-  - path: scripts
-  - path: test
-language: javascript
-appmap_dir: tmp/appmap
