@@ -9,10 +9,17 @@ async function main() {
   await mserc20.deployed();
   console.log("MSERC20 deployed to:", mserc20.address);
 
-  if(network.config.chainId == 11155111 && process.env.ETHERSCAN_API_KEY) {
-    await mserc20.deployTransaction.wait(5);
-    await verify(mserc20.address, ["MSERC20Test", "MSTest",5,1000]);
-  }
+  // Would need my ETH API key here
+  // if(network.config.chainId == 11155111 && process.env.ETHERSCAN_API_KEY) {
+  //   await mserc20.deployTransaction.wait(5);
+  //   await verify(mserc20.address, ["MSERC20Test", "MSTest",5,1000]);
+  // }
+
+
+  // CODE HERE
+  
+
+
 }
 
 async function verify(contractAddress, args) {
