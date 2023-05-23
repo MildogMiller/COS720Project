@@ -1,12 +1,13 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require('hardhat-docgen');
 
 //commented out production env code
 
 // const SEPURL = process.env.SEPOLIA_URL;
 // const SEPKEY = process.env.SEPOLIA_PRIVATE_KEY;
-/** @type import('hardhat/config').HardhatUserConfig */
 //hardhat network built in no need to specify its details
+/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.18",
   defaultNetwork: "hardhat",
@@ -20,5 +21,11 @@ module.exports = {
   // etherscan: {
   //   apiKey: process.env.ETHERSCAN_API_KEY
   // }
+  docgen:{
+    path: './docs',
+    clear: true,
+    runOnCompile: false,
+  }
+
   
 };

@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 import "./IMSERC20.sol";
-import "hardhat/console.sol";
 
+/// @title Mutually secure ERC20
+/// @author Adir Miller
+/// @notice This contract requires to to request payment before its made
+/// @dev Hooks may be introduced in a later stage
 contract MSERC20 is IMSERC20 {
-    //50WE = 1 token
-    //request (Sender, Receiver)
 
+    /// @notice Struct of the requests
     struct request {
         uint256 amount;
         uint256 endtime;
@@ -35,17 +37,24 @@ contract MSERC20 is IMSERC20 {
         _totalSupply = initial;
     }
 
+    /// @notice Simple return for name
+    /// @return name of the currency
     function name() public view override returns (string memory) {
         return _name;
     }
 
+    /// @notice Simple return for symbol
+    /// @return symbol of the currency
     function symbol() public view override returns (string memory) {
         return _symbol;
     }
 
+    /// @notice Simple return for symbol
+    /// @return symbol of the currency
     function totalSupply() public view override returns (uint256) {
         return _totalSupply;
     }
+
 
     function decimals() public pure override returns (uint8) {
         return 18;
