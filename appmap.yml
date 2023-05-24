@@ -1,7 +1,7 @@
 name: Chain1
 packages:
-  - path: coverage
-  - path: scripts
   - path: test
+  - path: contracts
+ordering: chronological
 language: javascript
 appmap_dir: tmp/appmap
