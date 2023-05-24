@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-require('hardhat-docgen');
+// require('hardhat-docgen');
+require("solidity-docgen")
+
 
 //commented out production env code
 
@@ -22,9 +24,10 @@ module.exports = {
   //   apiKey: process.env.ETHERSCAN_API_KEY
   // }
   docgen:{
-    path: './docs',
-    clear: true,
-    runOnCompile: false,
+    outputDir: './docs',
+    pages : "files",
+    pageExtension: ".json",
+    
   }
 
   

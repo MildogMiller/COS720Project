@@ -26,6 +26,13 @@ contract MSERC20 is IMSERC20 {
     uint256 internal _totalSupply;
     uint16 private _requestLimit;
 
+
+    /// @notice Constructor of the class, will set the total supply,innitial supply and 
+    /// set this balance to the owner of the contract
+    /// @param name_  The name of the token
+    /// @param symbol_  The symbol of the token
+    /// @param requestLimit_  The max requests one account can request at a time
+    /// @param initial The innitial cap of coins, this will be allocated to the owner
     constructor(
         string memory name_,
         string memory symbol_,
@@ -58,14 +65,21 @@ contract MSERC20 is IMSERC20 {
     }
 
 
+    /// @notice Simple return for decimals
+    /// @return decimals which is by default 18, however method can be overridden
     function decimals() public pure override returns (uint8) {
         return 18;
     }
 
+    /// @notice Returns the balance of an account
+    /// @param account that is being requested balance details of
+    /// @return balance of account
     function balanceOf(address account) public view override returns (uint256) {
         return _balances[account];
     }
 
+    /// @notice Simple function that a requester can use to get their own balance
+    /// @return balance of requester
     function myBalance() public view returns (uint256) {
         return _balances[msg.sender];
     }
