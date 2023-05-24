@@ -24,7 +24,7 @@ module.exports = {
   // }
   docgen:{
     outputDir: './docs',
-    pages : "files",
+    pages : "single",
   }
 
   
