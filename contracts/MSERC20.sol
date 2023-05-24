@@ -2,6 +2,8 @@
 pragma solidity ^0.8.18;
 import "./IMSERC20.sol";
 
+//This document follows the NatSpec format
+
 /// @title Mutually secure ERC20
 /// @author Adir Miller
 /// @notice This contract requires to to request payment before its made
