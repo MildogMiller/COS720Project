@@ -23,3 +23,5 @@ To run codecov: ```yarn hardhat coverage```
 #Documentation 
 The docs can be found under the docs folder of this github or from the permalink [here](https://github.com/MildogMiller/COS720Project/blob/dae74db64bbf4af6c6f581b65a895e6700d4696f/docs/index.md).  <br>
 
+The research report can be found under the docs folder of this github or the permalink [here](https://github.com/MildogMiller/COS720Project/blob/e55187d2648327bf1372926e1d1f3748ef9817d4/docs/COS720%20Adir%20Miller.pdf)
+
