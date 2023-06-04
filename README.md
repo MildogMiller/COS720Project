@@ -25,3 +25,5 @@ The docs can be found under the docs folder of this github or from the permalink
 
 The research report can be found under the docs folder of this github or the permalink [here](https://github.com/MildogMiller/COS720Project/blob/e55187d2648327bf1372926e1d1f3748ef9817d4/docs/COS720%20Adir%20Miller.pdf)
 
+Thank you for reading
+
